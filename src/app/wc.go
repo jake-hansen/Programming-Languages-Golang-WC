@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"flag"
 	"fmt"
 
@@ -8,8 +10,38 @@ import (
 )
 
 func main() {
-	fmt.Println("Welcome to Go WC")
 	fileptr := flag.String("filepath", "test.txt", "file to read from")
 	flag.Parse()
-	utilities.Readfile(*fileptr)
+	filecontents := utilities.Readfile(*fileptr)
+
+	scanner := bufio.NewScanner(bytes.NewReader(filecontents))
+
+	// Print line count
+	scanner.Split(bufio.ScanLines)
+	linecount := 0
+	for scanner.Scan() {
+		linecount++
+	}
+	fmt.Print(linecount)
+	scanner = bufio.NewScanner(bytes.NewReader(filecontents))
+
+	// Print word count
+	scanner.Split(bufio.ScanWords)
+	wordcount := 0
+	for scanner.Scan() {
+		wordcount++
+	}
+	fmt.Print(" ", wordcount)
+	scanner = bufio.NewScanner(bytes.NewReader(filecontents))
+
+	// Print character count
+	scanner.Split(bufio.ScanRunes)
+	charactercount := 0
+	for scanner.Scan() {
+		charactercount++
+	}
+	fmt.Print(" ", charactercount)
+
+	fmt.Print(" ", *fileptr)
+	
 }

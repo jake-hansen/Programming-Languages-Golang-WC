@@ -5,14 +5,12 @@ import (
 	"io/ioutil"
 )
 
-func Readfile(filename string) {
-	fmt.Println("filepath is", filename)
-
+func Readfile(filename string) []byte{
 	data, error := ioutil.ReadFile(filename)
 	if error != nil {
 		fmt.Println("Error reading file", error)
-		return
+		return nil
 	}
-	fmt.Println(string(data))
+	return data
 }
  
