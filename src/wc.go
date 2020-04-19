@@ -42,6 +42,6 @@ func main() {
 	}
 	fmt.Print(" ", charactercount)
 
-	fmt.Print(" ", *fileptr)
+	fmt.Println(" ", *fileptr)
 	
 }
