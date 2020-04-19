@@ -6,7 +6,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/jake-hansen/wordcount/src/app/utilities"
+	"github.com/jake-hansen/wordcount/src/utilities"
 )
 
 func main() {
