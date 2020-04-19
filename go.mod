@@ -1,3 +1,3 @@
-module github.com/jake-hansen/wc
+module github.com/jake-hansen/wordcount
 
 go 1.14
